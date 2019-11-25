@@ -1,0 +1,11 @@
+<form (submit)="addStudent()">
+  <input type="text" name="student" [(ngModel)]="student.name" placeholder="Name"> <br>
+  <input type="email" name="email" [(ngModel)]="student.email" placeholder="Email"> <br>
+  <button>Crear</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of students">
+    <a [routerLink]="item.id">{{item.name}} ({{item.email}})</a>
+  </li>
+</ul>
