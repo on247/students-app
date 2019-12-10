@@ -3,9 +3,17 @@
   <input type="email" name="email" [(ngModel)]="student.email" placeholder="Email"> <br>
   <button>Crear</button>
 </form>
-
-<ul>
-  <li *ngFor="let item of students">
-    <a [routerLink]="item.id">{{item.name}} ({{item.email}})</a>
-  </li>
-</ul>
+<table>
+  <thead style="text-align:left">
+    <th>Name</th>
+    <th>Email</th>
+    <th>Profile</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of students">
+    <td>{{item.name}}</td>
+    <td>{{item.email}}</td>
+    <td><a [routerLink]="item.id">Details</a></td>
+  </tr>
+  </tbody>
+</table>

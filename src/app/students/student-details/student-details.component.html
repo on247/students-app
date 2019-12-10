@@ -1,4 +1,26 @@
 <h2>Datos del estudiante ID: {{studentId}}</h2>
 <h3>Name: {{student.name}}</h3>
 <h3>Email: {{student.email}}</h3>
+<h3>Username: {{student.username}}</h3>
+<div *ngIf="student.address">
+  <h3>Address:</h3>
+  <h4>{{student.address.street}} {{student.address.suite}}</h4>
+  <h4>{{student.address.city}}</h4>
+  <h4>{{student.address.zipCode}}</h4>
+  <a href="{{student.maplink}}">Location map</a>
+</div>
+<h3>Website</h3>
 <a href="//{{student.website}}" [appWebLink]="sample">{{student.website}}</a>
+<h3>Albums</h3>
+<table>
+  <thead style="text-align:left">
+    <th>ID</th>
+    <th>title</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of student.albums">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+  </tr>
+  </tbody>
+</table>

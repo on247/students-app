@@ -15,7 +15,7 @@ export class StudentService {
   //   { name: 'John Doe', email: 'john.doe@noemail.com' }
   // ];
 
-  constructor(private httpClient:HttpClient) { 
+  constructor(private httpClient:HttpClient) {
   }
 
   getStudents():Promise<any> {
@@ -31,6 +31,12 @@ export class StudentService {
     return this.httpClient.get(url).toPromise();
   }
 
+  getStudentAlbums(id:number):Promise<any> {
+    console.log('traer UN album');
+    // const url = this.apiUrl + '/'+id;
+    const url = `${environment.apiUrl}albums?userId=${id}`;
+    return this.httpClient.get(url).toPromise();
+  }
   // createStudent(student:Student) {
   //   this.students.push(student);
   // }

@@ -17,7 +17,8 @@ export class StudentsComponent implements OnInit {
 
   student:Student = {
     email: "",
-    name: ""
+    name: "",
+    username:" ",
   }
 
   constructor(
@@ -33,7 +34,7 @@ export class StudentsComponent implements OnInit {
     //   console.log('Enviar a login');
     //   this.router.navigate(['/']);
     //   return;
-    // } 
+    // }
     this.studentService.getStudents().then(response => {
       this.students = response;
       console.log('Response: ', this.students);
@@ -47,9 +48,21 @@ export class StudentsComponent implements OnInit {
   }
 
   resetStudent() {
-    this.student = {
+    this.student= {
+      email: "",
       name: "",
-      email: ""
+      username:"",
+      maplink:"",
+      albums:[],
+      address:{
+        street:"",
+        suite:"",
+        city:"",
+        geo:{
+          lat:"0.0",
+          lng:"0,0"
+        }
+      }
     }
   }
 

@@ -12,9 +12,21 @@ export class StudentDetailsComponent implements OnInit, OnDestroy, AfterViewInit
 
   studentId:number;
   student:Student = {
-    name: '',
-    email: ''
-  };
+    email: "",
+    name: "",
+    username:"",
+    maplink:"",
+    albums:[],
+    address:{
+      street:"",
+      suite:"",
+      city:"",
+      geo:{
+        lat:"0.0",
+        lng:"0,0"
+      }
+    }
+  }
 
   sample:number = 5;
 
@@ -39,6 +51,11 @@ export class StudentDetailsComponent implements OnInit, OnDestroy, AfterViewInit
     this.studentService.getStudentDetails(this.studentId).then(response => {
       console.log('Response: ', response);
       this.student = response;
+      this.student.maplink='https://www.google.com/maps/@' + this.student.address.geo.lat + ',' + this.student.address.geo.lng+",15z";
+      this.studentService.getStudentAlbums(this.studentId).then(response => {
+        console.log('Albums Response: ', response);
+        this.student.albums = response;
+      });
     });
   }
 
