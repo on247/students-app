@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StudentsComponent } from './students/students.component';
+import { AlbumComponent } from './album/album.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StudentDetailsComponent } from './students/student-details/student-details.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
     action: ''
   } },
   { path: 'students/:studentId', component: StudentDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'albums/:albumId', component: AlbumComponent, canActivate: [AuthGuard] },
   { path: '404', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];

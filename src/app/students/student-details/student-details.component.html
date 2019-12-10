@@ -21,6 +21,7 @@
   <tr *ngFor="let item of student.albums">
     <td>{{item.id}}</td>
     <td>{{item.title}}</td>
+    <td><a [routerLink]="'/albums/'+item.id">See album</a></td>
   </tr>
   </tbody>
 </table>

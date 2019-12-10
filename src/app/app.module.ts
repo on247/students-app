@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StudentDetailsComponent } from './students/student-details/student-details.component';
 import { WebLinkDirective } from './common/directives/web-link.directive';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WebLinkDirective } from './common/directives/web-link.directive';
     HomeComponent,
     NotFoundComponent,
     StudentDetailsComponent,
-    WebLinkDirective
+    WebLinkDirective,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
